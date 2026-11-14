@@ -6,6 +6,12 @@ class ProfilePage extends StatelessWidget {
   final String nama = 'Muhammad Raffi Ar-rosyid';
   final String nim = '1124160189';
   final String prodi = 'Teknik Informatika';
+  final List<String> pengalaman = [
+    'Membuat Website POS (Point of Sale)',
+    'Pengembangan Aplikasi Mobile Flutter',
+    'Pengembangan Sistem Informasi Web',
+    'Perancangan UI/UX Aplikasi',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +90,25 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 24),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Pengalaman & Aktivitas',
+                    style: textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Divider(),
+                for (var item in pengalaman)
+                  Card(
+                    elevation: 2,
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    child: ListTile(
+                      leading: const Icon(Icons.work, color: Colors.blueAccent),
+                      title: Text(item),
+                    ),
+                  ),
               ],
             ),
           ),
