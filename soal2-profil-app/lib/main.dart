@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'app_state.dart';
+import 'models/profile.dart';
+import 'screens/login_page.dart';
+import 'screens/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,11 +32,20 @@ class MyApp extends StatelessWidget {
             ),
           ),
           themeMode: mode,
-          home: const Scaffold(
-            body: Center(
-              child: Text('Profil Mahasiswa - Soal 2'),
-            ),
-          ),
+          initialRoute: '/',
+          onGenerateRoute: (settings) {
+            switch (settings.name) {
+              case '/':
+                return MaterialPageRoute(builder: (_) => const LoginPage());
+              case '/profile':
+                final profile = settings.arguments as Profile? ?? profilAwal;
+                return MaterialPageRoute(
+                  builder: (_) => ProfilePage(profile: profile),
+                );
+              default:
+                return MaterialPageRoute(builder: (_) => const LoginPage());
+            }
+          },
         );
       },
     );
