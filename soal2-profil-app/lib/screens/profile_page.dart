@@ -79,6 +79,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 24),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/about');
+                  },
+                  icon: const Icon(Icons.info_outline),
+                  label: const Text('Tentang Saya'),
+                ),
               ],
             ),
           ),

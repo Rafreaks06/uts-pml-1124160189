@@ -51,10 +51,10 @@ final Profile profilAwal = Profile(
   nama: 'Muhammad Raffi Ar-rosyid',
   nim: '1124160189',
   prodi: 'Teknik Informatika',
-  kelas: 'TI 24 P',
+  kelas: 'TI 24 P SE3',
   bio: 'Mahasiswa Teknik Informatika yang tertarik pada pengembangan aplikasi mobile dan web.',
   email: 'mr.rafreaks@gmail.com',
-  hp: '08xxxxxxxxxx',
+  hp: '081223656546',
   github: 'Rafreaks06',
   foto: 'assets/images/foto.jpg',
 );
