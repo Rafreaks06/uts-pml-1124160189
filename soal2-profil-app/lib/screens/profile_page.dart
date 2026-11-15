@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
+import '../widgets/info_tile.dart';
 
 class ProfilePage extends StatefulWidget {
   final Profile profile;
@@ -68,10 +69,30 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 24),
+                Card(
+                  child: Column(
+                    children: [
+                      InfoTile(icon: Icons.email, label: 'Email', value: _profile.email),
+                      InfoTile(icon: Icons.phone, label: 'No. HP', value: _profile.hp),
+                      InfoTile(icon: Icons.code, label: 'GitHub', value: _profile.github),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final updated =
+              await Navigator.pushNamed(context, '/edit', arguments: _profile);
+          if (updated != null && updated is Profile) {
+            setState(() => _profile = updated);
+          }
+        },
+        child: const Icon(Icons.edit),
       ),
     );
   }

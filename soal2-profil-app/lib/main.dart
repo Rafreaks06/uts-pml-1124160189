@@ -3,6 +3,7 @@ import 'app_state.dart';
 import 'models/profile.dart';
 import 'screens/login_page.dart';
 import 'screens/profile_page.dart';
+import 'screens/edit_profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,6 +42,11 @@ class MyApp extends StatelessWidget {
                 final profile = settings.arguments as Profile? ?? profilAwal;
                 return MaterialPageRoute(
                   builder: (_) => ProfilePage(profile: profile),
+                );
+              case '/edit':
+                final profile = settings.arguments as Profile? ?? profilAwal;
+                return MaterialPageRoute(
+                  builder: (_) => EditProfilePage(profile: profile),
                 );
               default:
                 return MaterialPageRoute(builder: (_) => const LoginPage());
