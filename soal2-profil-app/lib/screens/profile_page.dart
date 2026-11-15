@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../app_state.dart';
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
 
@@ -27,6 +28,86 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text('Profil Mahasiswa'),
         centerTitle: true,
+        actions: [
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: themeModeNotifier,
+            builder: (context, mode, _) {
+              return IconButton(
+                icon: Icon(
+                  mode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode,
+                ),
+                onPressed: () {
+                  themeModeNotifier.value =
+                      mode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+                },
+              );
+            },
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(color: Colors.blue),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CircleAvatar(
+                    radius: 30,
+                    child: Icon(Icons.person, size: 30),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    _profile.nama,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    _profile.nim,
+                    style: const TextStyle(color: Colors.white70),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil'),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Tentang Saya'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            ValueListenableBuilder<ThemeMode>(
+              valueListenable: themeModeNotifier,
+              builder: (context, mode, _) {
+                return SwitchListTile(
+                  title: const Text('Mode Gelap'),
+                  secondary: const Icon(Icons.dark_mode),
+                  value: mode == ThemeMode.dark,
+                  onChanged: (value) {
+                    themeModeNotifier.value =
+                        value ? ThemeMode.dark : ThemeMode.light;
+                  },
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Keluar'),
+              onTap: () => Navigator.pushReplacementNamed(context, '/'),
+            ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
