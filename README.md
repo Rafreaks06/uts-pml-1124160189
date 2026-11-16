@@ -1,17 +1,41 @@
-# uts_mobile
+# UTS PML - Aplikasi Profil Mahasiswa
 
-A new Flutter project.
+**Nama:** Muhammad Raffi Ar-rosyid
+**NIM:** 1124160189
+**Kelas:** TI 24 P SE3
+**Mata Kuliah:** Pemrograman Mobile (KB1185)
 
-## Getting Started
+## Video Presentasi
 
-This project is a starting point for a Flutter application.
+[UTS PML – Aplikasi Profil – Muhammad Raffi Ar-rosyid – 1124160189](https://youtu.be/RipZXXDhVlI)
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+![Login](soal2-profil-app/assets/images/login.jpg)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Profil](soal2-profil-app/assets/images/profile.jpg)
+
+![Edit Profil](soal2-profil-app/assets/images/editprofil.jpg)
+
+![Tentang Saya](soal2-profil-app/assets/images/tentangsaya.jpg)
+
+## Fitur
+
+- Halaman Login (Form + validator, loading, pushReplacement)
+- Halaman Profil (foto dari assets, bio, kontak)
+- Halaman Edit Profil (validasi, data kembali via Navigator.pop)
+- Halaman Tentang Saya (ListView)
+- Mode gelap (switch di drawer dan AppBar)
+- Drawer dan FloatingActionButton
+
+## Cara Menjalankan
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Akun Demo Login
+
+- Email: `raffi@global.ac.id`
+- Password: `123456`
